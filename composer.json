@@ -10,14 +10,6 @@
         "boilerplate",
         "stack"
     ],
-    "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "make-pot": [
-            "bash RaccoonWP/utils/generate-translations.sh"
-        ]
-    },
     "authors": [
         {
             "name": "Kamil Grzegorczyk",
