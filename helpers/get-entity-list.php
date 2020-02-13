@@ -20,8 +20,10 @@ function get_entity_list($settings = [], $parseCallback)
 {
     // Pagination settings
     $posts_per_page = isset($settings[ 'per_page' ]) && intval($settings[ 'per_page' ]) ? $settings[ 'per_page' ] : -1;
+    $default_page = ! empty($settings['page']) && intval($settings['page']) ? $settings['page'] : 1;
+
     $per_page       = isset($_POST[ 'data' ][ 'per_page' ]) ? intval($_POST[ 'data' ][ 'per_page' ]) : $posts_per_page; // Per page ajax handling.
-    $page           = isset($_POST[ 'data' ][ 'page' ]) ? intval($_POST[ 'data' ][ 'page' ]) : 1;
+    $page           = isset($_POST['data']['page']) ? intval($_POST['data']['page']) : $default_page;
     $offset         = $per_page * ($page - 1);
 
     // WordPress query settings.
@@ -81,12 +83,12 @@ function get_entity_list($settings = [], $parseCallback)
                     $objects[ $i ] = call_user_func_array($parseCallback[ $post_type ], [$data_query->post]);
                 }
 
-            } elseif (is_array($parseCallback)) {
+            } elseif (is_array($parseCallback) && count(array_filter(array_keys($parseCallback), 'is_string')) === 0) {
                 // [ $objInstance, 'method']
                 if (method_exists(... $parseCallback)) {
                     $objects[ $i ] = call_user_func_array($parseCallback, [$data_query->post]);
                 }
-            } else {
+            } elseif (is_string($parseCallback)) {
                 // 'parse_function'
                 if (function_exists($parseCallback)) {
                     $objects[ $i ] = call_user_func_array($parseCallback, [$data_query->post]);
