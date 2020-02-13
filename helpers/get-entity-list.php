@@ -83,12 +83,12 @@ function get_entity_list($settings = [], $parseCallback)
                     $objects[ $i ] = call_user_func_array($parseCallback[ $post_type ], [$data_query->post]);
                 }
 
-            } elseif (is_array($parseCallback)) {
+            } elseif (is_array($parseCallback) && count(array_filter(array_keys($parseCallback), 'is_string')) === 0) {
                 // [ $objInstance, 'method']
                 if (method_exists(... $parseCallback)) {
                     $objects[ $i ] = call_user_func_array($parseCallback, [$data_query->post]);
                 }
-            } else {
+            } elseif (is_string($parseCallback)) {
                 // 'parse_function'
                 if (function_exists($parseCallback)) {
                     $objects[ $i ] = call_user_func_array($parseCallback, [$data_query->post]);
