@@ -1,3 +1,6 @@
+2.2.1 [10th of April 2021]
+- remove error logging for locally disabled plugins
+
 2.2 [26th of January 2021]
 - bump up minimal php version to 7.3 as 7.2 is EOL
 
