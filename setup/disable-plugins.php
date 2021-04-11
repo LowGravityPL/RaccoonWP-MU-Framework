@@ -13,6 +13,7 @@ if (defined('ENV_DISABLED_PLUGINS')) {
         $utility = new \RaccoonMUFramework\PluginDisabler($plugins_to_disable);
 
         //part below is optional but for me it is crucial
-        error_log('Locally disabled plugins: ' . var_export($plugins_to_disable, true));
+        //TODO: replace that with admin notice on plugins page
+        //error_log('Locally disabled plugins: ' . var_export($plugins_to_disable, true));
     }
 }
