@@ -11,7 +11,7 @@ namespace RaccoonMUFramework;
  * @param $return boolean Returns template in place or just echoes it.
  * @return string
  */
-function include_theme_partial($filename, $data = [], $return = false)
+function include_theme_partial($filename, array $data = [], bool $return = false)
 {
     $template = get_theme_partial($filename, $data);
 
@@ -32,7 +32,7 @@ function include_theme_partial($filename, $data = [], $return = false)
  * @param $data array Data array passed to the theme partial.
  * @return bool|string
  */
-function get_theme_partial($filename, $data)
+function get_theme_partial(string $filename, array $data)
 {
     $filename = get_template_directory() . $filename;
 

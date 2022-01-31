@@ -6,19 +6,19 @@ namespace RaccoonMUFramework;
  * Class AcfJsonHelper helps in setting up acf-json path to be stored outside default theme location
  * @package RaccoonWP\Core
  */
-Class AcfJsonHelper
+class AcfJsonHelper
 {
-    /** @var path to the directory where acf-json should be stored. */
-    public static $path;
+    /** @var string path to the directory where acf-json should be stored. */
+    public static string $path;
 
-    public static function setup($path)
+    public static function setup(string $path)
     {
         if (file_exists($path)) {
             self::$path = $path;
-            add_filter('acf/settings/save_json', [ __NAMESPACE__  . '\\AcfJsonHelper', 'set_acf_json_save_path']);
-            add_filter('acf/settings/load_json', [ __NAMESPACE__  . '\\AcfJsonHelper', 'set_acf_json_load_path']);
+            add_filter('acf/settings/save_json', [__NAMESPACE__ . '\\AcfJsonHelper', 'set_acf_json_save_path']);
+            add_filter('acf/settings/load_json', [__NAMESPACE__ . '\\AcfJsonHelper', 'set_acf_json_load_path']);
         } else {
-            error_log('ACF Json directory doesn\'t exist ' . $path);
+            error_log('ACF Json directory does not exist' . $path);
         }
     }
 
@@ -27,9 +27,9 @@ Class AcfJsonHelper
         return self::$path;
     }
 
-    public static function set_acf_json_load_path($paths)
+    public static function set_acf_json_load_path(array $paths): array
     {
-        unset($paths[ 0 ]);
+        unset($paths[0]);
         // append path
         $paths[] = self::$path;
 
