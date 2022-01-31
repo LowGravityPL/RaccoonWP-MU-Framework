@@ -1,3 +1,6 @@
+2.3 [31st of January 2022]
+- bump up min php version to 7.4
+
 2.2.1 [10th of April 2021]
 - remove error logging for locally disabled plugins
 
