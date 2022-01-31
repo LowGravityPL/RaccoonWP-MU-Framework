@@ -11,14 +11,14 @@ namespace RaccoonMUFramework;
 
 class PluginDisabler
 {
-    static $instance;
-    private $disabled = [];
+    static PluginDisabler $instance;
+    private array $disabled = [];
 
     /**
      * Sets up the options filter, and optionally handles an array of plugins to disable
-     * @param array $disables Optional array of plugin filenames to disable
+     * @param array|null $disables Optional array of plugin filenames to disable
      */
-    public function __construct(Array $disables = null)
+    public function __construct(?array $disables = null)
     {
         /**
          * Handle what was passed in
@@ -43,8 +43,9 @@ class PluginDisabler
 
     /**
      * Adds a filename to the list of plugins to disable
+     * @param string $file
      */
-    public function disable($file)
+    public function disable(string $file)
     {
         $this->disabled[] = $file;
     }
@@ -54,13 +55,13 @@ class PluginDisabler
      * @param array $plugins WP-provided list of plugin filenames
      * @return array The filtered array of plugin filenames
      */
-    public function do_disabling($plugins)
+    public function do_disabling(array $plugins): array
     {
-        if (count($this->disabled)) {
-            foreach ((array)$this->disabled as $plugin) {
+        if (count($this->disabled) > 0) {
+            foreach ($this->disabled as $plugin) {
                 $key = array_search($plugin, $plugins);
                 if (false !== $key) {
-                    unset($plugins[ $key ]);
+                    unset($plugins[$key]);
                 }
             }
         }
@@ -75,14 +76,12 @@ class PluginDisabler
      *
      * @return array
      */
-    public function do_network_disabling($plugins)
+    public function do_network_disabling(array $plugins): array
     {
-
-        if (count($this->disabled)) {
-            foreach ((array)$this->disabled as $plugin) {
-
-                if (isset($plugins[ $plugin ])) {
-                    unset($plugins[ $plugin ]);
+        if (count($this->disabled) > 0) {
+            foreach ($this->disabled as $plugin) {
+                if (isset($plugins[$plugin])) {
+                    unset($plugins[$plugin]);
                 }
             }
         }

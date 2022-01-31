@@ -1,5 +1,7 @@
 <?php
+
 namespace RaccoonMUFramework;
 
-class DefaultDataHelper {
+class DefaultDataHelper
+{
 }

@@ -4,7 +4,7 @@
 Plugin Name:  RaccoonWP MU Framework
 Plugin URI:   https://lowgravity.pl/
 Description:  This MU plugin contains RaccoonWP Framework functions and classes.
-Version:      1.0.0
+Version:      2.3.0
 Author:       LowGravity.pl
 Author URI:   https://raccoonwp.lowgravity.pl/
 License:      MIT License
