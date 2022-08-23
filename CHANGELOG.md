@@ -1,5 +1,5 @@
-2.4 [31st of January 2022]
-- Add PHP ver 8.0 to the composer requirements
+2.4 [23rd of August 2022]
+- Add support for PHP 8.x to the composer requirements
 
 2.3 [31st of January 2022]
 - bump up min php version to 7.4
