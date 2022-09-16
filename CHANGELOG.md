@@ -1,3 +1,6 @@
+2.5 [16th of September 2022]
+- Fix warning in PHP 8, make `$settings` param mandatory in `get_entity_list` function
+
 2.4 [23rd of August 2022]
 - Add support for PHP 8.x to the composer requirements
 
