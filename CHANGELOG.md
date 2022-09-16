@@ -1,3 +1,6 @@
+2.5.1 [16th of September 2022]
+- Remove union type to restore compatibility with PHP 7.4
+
 2.5 [16th of September 2022]
 - Fix warning in PHP 8, make `$settings` param mandatory in `get_entity_list` function
 
