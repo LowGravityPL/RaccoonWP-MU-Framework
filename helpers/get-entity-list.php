@@ -15,7 +15,7 @@ namespace RaccoonMUFramework;
  * @return array
  *
  */
-function get_entity_list(array $settings, callable|array $parseCallback): array
+function get_entity_list(array $settings, $parseCallback): array
 {
     // Pagination settings
     $posts_per_page = isset($settings[ 'per_page' ]) && intval($settings[ 'per_page' ]) ? $settings[ 'per_page' ] : -1;
