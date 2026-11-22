@@ -30,13 +30,7 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://wpackagist.org"
-        }
-    ],
     "require": {
-        "php": "^7.4||^8.0"
+        "php": "^8.3"
     }
 }
