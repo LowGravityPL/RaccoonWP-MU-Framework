@@ -1,3 +1,7 @@
+2.6.0 [22nd of November 2026]
+- Raise the minimum PHP version to 8.3, as older lines no longer get security fixes. Installs on older PHP keep resolving 2.5.1
+- Drop the unused wpackagist.org repository
+
 2.5.1 [16th of September 2022]
 - Remove union type to restore compatibility with PHP 7.4
 
